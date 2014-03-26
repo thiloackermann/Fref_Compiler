@@ -1,6 +1,8 @@
 package de.lbac.compiler;
 
-public class MyVisitor {
+import de.lbac.parser.frefBaseVisitor;
+
+public class MyVisitor extends frefBaseVisitor {
 
 	/**
 	 * @param args
@@ -9,5 +11,12 @@ public class MyVisitor {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public visitTree()
+	{
+		
+	}
+	
+	
 
 }
