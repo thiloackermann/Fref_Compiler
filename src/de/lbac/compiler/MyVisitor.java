@@ -4,13 +4,15 @@ import de.lbac.parser.frefBaseVisitor;
 
 public class MyVisitor extends frefBaseVisitor {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	@Override
+	protected Object aggregateResult(Object aggregate, Object nextResult) {
+		if(aggregate == null){
+			return nextResult;
+		}
+		if(nextResult == null){
+			return aggregate;
+		}
+		return aggregate + "\n" + nextResult;
 	}
-	
 
 }
