@@ -1,0 +1,22 @@
+Number a!
+Number b = 2!
+a = b - 1!
+
+if<<a==1>>
+then: a=2!
+else: a=3!
+fi!
+
+if<<a>2>>
+then: a=0!
+fi!
+
+do
+a = a + 1!
+y = Funktion<<Number a>>!
+while<<a<10>>
+od!
+
+#Funktion<<Number x>><<Number>>
+Out<<Number x>>!
+#!
