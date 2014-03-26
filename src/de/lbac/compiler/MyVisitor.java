@@ -25,8 +25,13 @@ import de.lbac.parser.frefParser.RelCondContext;
 import de.lbac.parser.frefParser.StartContext;
 import de.lbac.parser.frefParser.SubtractionContext;
 import de.lbac.parser.frefParser.VariableContext;
+import java.util.Map;
 
 public class MyVisitor extends frefBaseVisitor {
+	
+	Map<String, Integer> variables;   //Variablen Map
+	Map<String, String> functions;   //Funktionsmap
+	
 	
 	@Override
 	public Object visitAddition(AdditionContext ctx) {
@@ -111,6 +116,7 @@ public class MyVisitor extends frefBaseVisitor {
 	@Override
 	public Object visitMultDivision(MultDivisionContext ctx) {
 		//System.out.println("#" + ctx.operator.getText() +"#");
+		
 		if (ctx.operator.getText().equals("*"))
 		{
 			return visitChildren(ctx) + "imul\n";
