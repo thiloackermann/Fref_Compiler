@@ -10,4 +10,8 @@ public class MyVisitor {
 
 	}
 
+	public static void test(){
+
+	}
+
 }
