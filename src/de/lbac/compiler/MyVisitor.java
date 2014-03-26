@@ -1,5 +1,6 @@
 package de.lbac.compiler;
 
+import org.antlr.v4.runtime.tree.RuleNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import de.lbac.parser.frefBaseVisitor;
@@ -25,12 +26,14 @@ import de.lbac.parser.frefParser.RelCondContext;
 import de.lbac.parser.frefParser.StartContext;
 import de.lbac.parser.frefParser.SubtractionContext;
 import de.lbac.parser.frefParser.VariableContext;
+
+import java.util.HashMap;
 import java.util.Map;
 
-public class MyVisitor extends frefBaseVisitor {
+public class MyVisitor extends frefBaseVisitor<Object> {
 	
-	Map<String, Integer> variables;   //Variablen Map
-	Map<String, String> functions;   //Funktionsmap
+	Map<String, Integer> variables = new HashMap<String, Integer>();   //Variablen Map
+	Map<String, String> functions = new HashMap<String, String>();   //Funktionsmap
 	
 	
 	@Override
@@ -55,17 +58,22 @@ public class MyVisitor extends frefBaseVisitor {
 	
 	@Override
 	public Object visitDeclaration(DeclarationContext ctx) {
+		variables.put(ctx.name.getText(), null);
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDeclarationDefinition(DeclarationDefinitionContext ctx) {
-		return visitChildren(ctx);
+		//variables.put(ctx.name.getText(), Integer.decode(visitChildren(ctx).toString().substring(4, visitChildren(ctx).toString().indexOf('\n'))));
+		return visitChildren(ctx) + "istore " + ctx.name.getText() + "\n";
 	}
 	
 	@Override
 	public Object visitDefinition(DefinitionContext ctx) {
-		return visitChildren(ctx);
+		if(variables.get(ctx.name.getText()) != null); // noch abfangen?
+		//variables.put(ctx.name.getText(), Integer.decode(visitChildren(ctx).toString().substring(4, visitChildren(ctx).toString().indexOf('\n'))));
+		return visitChildren(ctx) + "istore " + ctx.name.getText() + "\n";
+		
 	}
 	
 	@Override
@@ -80,12 +88,12 @@ public class MyVisitor extends frefBaseVisitor {
 	
 	@Override
 	public Object visitExpressionWithoutStatement(ExpressionWithoutStatementContext ctx) {
-		return visitChildren(ctx);
+		return null;
 	}
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		return visitChildren(ctx);
+		return visitChildren(ctx) + "goto " + ctx.functionname.getText() + "\n";
 	}
 	
 	@Override
@@ -100,7 +108,11 @@ public class MyVisitor extends frefBaseVisitor {
 
 	@Override
 	public Object visitFunctionParameter(FunctionParameterContext ctx) {
-		return visitChildren(ctx);
+		if(ctx.parent.getText().equals("fnctcall"))
+			return "ldc " + variables.get(ctx.name.getText()) + "\n";
+		else
+			return "istore " + ctx.name.getText() + "\n";
+		
 	}
 	
 	@Override
@@ -150,7 +162,7 @@ public class MyVisitor extends frefBaseVisitor {
 
 	@Override
 	public Object visitVariable(VariableContext ctx) {
-		return visitChildren(ctx);
+		return "iload " + ctx.getText() + "\n";
 	}
 	
 	@Override
