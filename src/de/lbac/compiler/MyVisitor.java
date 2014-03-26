@@ -12,15 +12,5 @@ public class MyVisitor extends frefBaseVisitor {
 
 	}
 	
-	public visitTree()
-	{
-		
-	}
-	
-	
-
-	public static void test(){
-
-	}
 
 }
