@@ -110,7 +110,16 @@ public class MyVisitor extends frefBaseVisitor {
 	
 	@Override
 	public Object visitMultDivision(MultDivisionContext ctx) {
-		return visitChildren(ctx);
+		//System.out.println("#" + ctx.operator.getText() +"#");
+		if (ctx.operator.getText().equals("*"))
+		{
+			return visitChildren(ctx) + "imul\n";
+		}
+		else
+		{
+			return visitChildren(ctx) + "idiv\n";
+		}
+			
 	}
 	
 	@Override
@@ -130,7 +139,7 @@ public class MyVisitor extends frefBaseVisitor {
 	
 	@Override
 	public Object visitSubtraction(SubtractionContext ctx) {
-		return visitChildren(ctx);
+		return visitChildren(ctx) + "isub\n";
 	}
 
 	@Override
@@ -146,7 +155,7 @@ public class MyVisitor extends frefBaseVisitor {
 		if(nextResult == null){
 			return aggregate;
 		}
-		return aggregate + "\n" + nextResult;
+		return aggregate + "" + nextResult;
 	}
 
 }

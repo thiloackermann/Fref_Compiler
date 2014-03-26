@@ -12,7 +12,7 @@ then: a=0!
 fi!
 
 do
-a = a + 1!
+a = a * 2!
 y = Funktion<<Number a>>!
 while<<a<10>>
 od!
