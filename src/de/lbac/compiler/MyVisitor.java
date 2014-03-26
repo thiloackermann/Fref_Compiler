@@ -30,112 +30,112 @@ public class MyVisitor extends frefBaseVisitor {
 	
 	@Override
 	public Object visitAddition(AdditionContext ctx) {
-		return visitChildren(ctx) + "ADD\n";
+		return visitChildren(ctx) + "iadd\n";
 	}
 	
 	@Override
 	public Object visitBrackets(BracketsContext ctx) {
-		return visitChildren(ctx) + "BRK\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitCode(CodeContext ctx) {
-		return visitChildren(ctx) + "COD\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitCompareKeyword(CompareKeywordContext ctx) {
-		return visitChildren(ctx) + "CKW\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDeclaration(DeclarationContext ctx) {
-		return visitChildren(ctx) + "DEC\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDeclarationDefinition(DeclarationDefinitionContext ctx) {
-		return visitChildren(ctx) + "DED\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDefinition(DefinitionContext ctx) {
-		return visitChildren(ctx) + "DEF\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDowhileclause(DowhileclauseContext ctx) {
-		return visitChildren(ctx) + "DOW\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitEmpty(EmptyContext ctx) {
-		return visitChildren(ctx) + "EMP\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitExpressionWithoutStatement(ExpressionWithoutStatementContext ctx) {
-		return visitChildren(ctx) + "EWS\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		return visitChildren(ctx) + "FNC\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitFnctn(FnctnContext ctx) {
-		return visitChildren(ctx) + "FNT\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitFuncCall(FuncCallContext ctx) {
-		return visitChildren(ctx) + "FUC\n";
+		return visitChildren(ctx);
 	}
 
 	@Override
 	public Object visitFunctionParameter(FunctionParameterContext ctx) {
-		return visitChildren(ctx) + "PAR\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitIfclause(IfclauseContext ctx) {
-		return visitChildren(ctx) + "IFT\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitIfelseclause(IfelseclauseContext ctx) {
-		return visitChildren(ctx) + "IFE\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitMultDivision(MultDivisionContext ctx) {
-		return visitChildren(ctx) + "MUD\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitNumber(NumberContext ctx) {
-		return visitChildren(ctx) + "NUM\n";
+		return "ldc " + ctx.getText() + "\n";
 	}
 	
 	@Override
 	public Object visitRelCond(RelCondContext ctx) {
-		return visitChildren(ctx) + "CON\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitStart(StartContext ctx) {
-		return visitChildren(ctx) + "START\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitSubtraction(SubtractionContext ctx) {
-		return visitChildren(ctx) + "SUB\n";
+		return visitChildren(ctx);
 	}
 
 	@Override
 	public Object visitVariable(VariableContext ctx) {
-		return visitChildren(ctx) + "VAR\n";
+		return visitChildren(ctx);
 	}
 	
 	@Override
