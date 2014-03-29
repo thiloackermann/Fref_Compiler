@@ -58,21 +58,22 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitDeclaration(DeclarationContext ctx) {
-		variables.put(ctx.name.getText(), null);
+		variables.put(ctx.name.getText(), variables.size());
 		return visitChildren(ctx);
 	}
 	
 	@Override
 	public Object visitDeclarationDefinition(DeclarationDefinitionContext ctx) {
-		//variables.put(ctx.name.getText(), Integer.decode(visitChildren(ctx).toString().substring(4, visitChildren(ctx).toString().indexOf('\n'))));
-		return visitChildren(ctx) + "istore " + ctx.name.getText() + "\n";
+		if(!variables.containsKey(ctx.name.getText()))
+				variables.put(ctx.name.getText(), variables.size());
+		return visitChildren(ctx) + "istore " + variables.get(ctx.name.getText()) + "\n";
 	}
 	
 	@Override
 	public Object visitDefinition(DefinitionContext ctx) {
-		if(variables.get(ctx.name.getText()) != null); // noch abfangen?
-		//variables.put(ctx.name.getText(), Integer.decode(visitChildren(ctx).toString().substring(4, visitChildren(ctx).toString().indexOf('\n'))));
-		return visitChildren(ctx) + "istore " + ctx.name.getText() + "\n";
+		if(variables.get(ctx.name.getText()) != null)
+			return visitChildren(ctx) + "istore " + variables.get(ctx.name.getText()) + "\n";
+		return null;
 		
 	}
 	
@@ -93,7 +94,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		return visitChildren(ctx) + "goto " + ctx.functionname.getText() + "\n";
+		return visitChildren(ctx) + "istore 99\n" + "jsr " + ctx.functionname.getText() + "\n";
 	}
 	
 	@Override
@@ -108,11 +109,12 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 
 	@Override
 	public Object visitFunctionParameter(FunctionParameterContext ctx) {
-		if(ctx.parent.getText().equals("fnctcall"))
-			return "ldc " + variables.get(ctx.name.getText()) + "\n";
-		else
-			return "istore " + ctx.name.getText() + "\n";
-		
+		if(ctx.parent.getText().charAt(0) != ('#'))
+			return "iload " + variables.get(ctx.name.getText()) + "\n";
+		else{
+			variables.put(ctx.name.getText(), variables.size());
+			return "istore " + variables.get(ctx.name.getText()) + "\n";
+		}
 	}
 	
 	@Override
@@ -162,7 +164,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 
 	@Override
 	public Object visitVariable(VariableContext ctx) {
-		return "iload " + ctx.getText() + "\n";
+		return "iload " + variables.get(ctx.getText()) + "\n";
 	}
 	
 	@Override
