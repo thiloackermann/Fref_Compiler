@@ -3,6 +3,7 @@ package de.lbac.compiler;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ANTLRFileStream;
@@ -15,14 +16,10 @@ import de.lbac.parser.frefParser;
 
 public class Main {
 	
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		ANTLRInputStream input = new ANTLRFileStream("code.demo");
-		frefLexer lexer = new frefLexer(input);
-		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		frefParser parser = new frefParser(tokens);
 		
-		ParseTree tree = parser.start();
-		String compiledCode = createJasminFile((String)new MyVisitor().visit(tree));
+		String compiledCode = compile(input);
 		System.out.println(compiledCode);
 		File f = new File("test.j");
 		FileWriter fs = new FileWriter(f);
@@ -30,10 +27,31 @@ public class Main {
 		fs.close();
 	}
 	
+	public static String compile(ANTLRInputStream input){
+		frefLexer lexer = new frefLexer(input);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		frefParser parser = new frefParser(tokens);
+		
+		ParseTree tree = parser.start();
+		return createJasminFile((String)new MyVisitor().visit(tree));
+		
+	}
+	
 	private static String createJasminFile(String code){
 		return ".class public Fref\n" + 
 				".super java/lang/Object\n" + 
 				"\n" + 
+				".method public static Out(I)V\n" +
+				"\n" +
+				"	.limit stack 20\n" +
+				"	.limit locals 20\n" +
+				"	iload 0\n" +
+				"	getstatic java/lang/System/out Ljava/io/PrintStream;\n" +
+				"	swap\n" +
+				"	invokevirtual java/io/PrintStream/println(I)V\n" + 
+				"	return\n" + 
+				"\n" +
+				".end method\n" +
 				".method public static main([Ljava/lang/String;)V\n" + 
 				"	.limit stack 100\n" + 
 				"	.limit locals 100\n" + 
@@ -41,13 +59,8 @@ public class Main {
 				code + 
 				"	return\n" + 
 				"\n" +
-				"Out:\n" +
-				"	getstatic java/lang/System/out LJava/io/PrintStream;\n" +
-				"	swap\n" +
-				"	invokevirtual java/io/PrintStream/println(I)V\n" + 
-				"	ret 99\n" + 
-				"\n" +
-				".end method";
+				".end method\n" 
+				;
 	}
 
 }

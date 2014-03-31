@@ -1,8 +1,5 @@
 package de.lbac.compiler;
 
-import org.antlr.v4.runtime.tree.RuleNode;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
 import de.lbac.parser.frefBaseVisitor;
 import de.lbac.parser.frefParser.AdditionContext;
 import de.lbac.parser.frefParser.BracketsContext;
@@ -94,7 +91,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		return visitChildren(ctx) + "istore 99\n" + "jsr " + ctx.functionname.getText() + "\n";
+		return visitChildren(ctx) + "invokestatic " + "Fref" + "." + ctx.functionname.getText() + "(I)V\n";
 	}
 	
 	@Override

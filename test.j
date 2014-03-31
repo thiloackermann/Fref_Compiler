@@ -1,6 +1,17 @@
 .class public Fref
 .super java/lang/Object
 
+.method public static Out(I)V
+
+	.limit stack 20
+	.limit locals 20
+	iload 0
+	getstatic java/lang/System/out Ljava/io/PrintStream;
+	swap
+	invokevirtual java/io/PrintStream/println(I)V
+	return
+
+.end method
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
@@ -29,14 +40,7 @@ iload 0
 ldc 10
 istore 2
 iload 2
-istore 99
-jsr Out
+invokestatic Fref.Out(I)V
 	return
-
-Out:
-	getstatic java/lang/System/out LJava/io/PrintStream;
-	swap
-	invokevirtual java/io/PrintStream/println(I)V
-	ret 99
 
 .end method
