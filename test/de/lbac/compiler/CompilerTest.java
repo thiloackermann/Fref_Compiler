@@ -55,24 +55,15 @@ public class CompilerTest {
 	@DataProvider
 	private Object[][] provide_code_expectedText(){
 		return new Object[][]{
-				{"Number b=1+2!" +
-					"Out<<Number b>>!","3" + System.lineSeparator()},
-				{"Number b=1+2*3!" +
-					"Out<<Number b>>!","7" + System.lineSeparator()},
-					{"Number b=(1+2)*3!" +
-							"Out<<Number b>>!","9" + System.lineSeparator()},
-					{"Number b!" + "b = 42!" +
-					"Out<<Number b>>!","42" + System.lineSeparator()},
-					{"Number b=1*2/4+1!" +
-					"Out<<Number b>>!","1" + System.lineSeparator()},
-					{"Number b=8/2*4!" +
-					"Out<<Number b>>!","16" + System.lineSeparator()},
-					{"Number b=1+2!" +
-					"Out<<Number b>>!","3" + System.lineSeparator()},
-					{"Number b=1+2!" +
-				"Out<<Number b>>!","3" + System.lineSeparator()},
-					
-				{"Number a=1!",""}
+				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
+				{"Number b=1+2*3!" + "Out<<Number b>>!","7" + System.lineSeparator()},
+				{"Number b=(1+2)*3!" +	"Out<<Number b>>!","9" + System.lineSeparator()},
+				{"Number b!" + "b = 42!" +	"Out<<Number b>>!","42" + System.lineSeparator()},
+				{"Number b=1*2/4+1!" +	"Out<<Number b>>!","1" + System.lineSeparator()},
+				{"Number b=8/2*4!" +	"Out<<Number b>>!","16" + System.lineSeparator()},
+				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
+				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
+				
 		};
 	}
 
