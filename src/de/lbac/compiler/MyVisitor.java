@@ -126,7 +126,6 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitMultDivision(MultDivisionContext ctx) {
-		//System.out.println("#" + ctx.operator.getText() +"#");
 		
 		if (ctx.operator.getText().equals("*"))
 		{
