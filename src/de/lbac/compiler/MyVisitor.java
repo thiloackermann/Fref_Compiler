@@ -26,11 +26,16 @@ import de.lbac.parser.frefParser.VariableContext;
 
 import java.util.HashMap;
 import java.util.Map;
-
+ 
 public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	Map<String, Integer> variables = new HashMap<String, Integer>();   //Variablen Map
 	Map<String, String> functions = new HashMap<String, String>();   //Funktionsmap
+	int labelCounter;
+	
+	public MyVisitor(){
+		labelCounter = 0;
+	}
 	
 	
 	@Override
@@ -50,6 +55,10 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitCompareKeyword(CompareKeywordContext ctx) {
+		if(ctx.getText().equals("==")){
+			return "ifeq ";
+		}
+		
 		return visitChildren(ctx);
 	}
 	
@@ -76,6 +85,11 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitDowhileclause(DowhileclauseContext ctx) {
+		return "lb" + labelCounter++ + "\n" + visit(ctx.docode) + visit(ctx.cond) + "lb" + labelCounter + "\n";
+		//label: docode
+		//W1
+		//W2
+		//IFEQ <label>
 		return visitChildren(ctx);
 	}
 	
@@ -116,12 +130,14 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitIfclause(IfclauseContext ctx) {
-		return visitChildren(ctx);
-	}
-	
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\ngoto lb" + labelCounter++ + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter +":\n";
+	}														//[code]
+															//goto Label2
+															//Label1: [code]
+															//Label2: ...	
 	@Override
 	public Object visitIfelseclause(IfelseclauseContext ctx) {
-		return visitChildren(ctx);
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\n" + vist(ctx.elsecode) + "goto lb" + labelCounter++ + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter +":\n";
 	}
 	
 	@Override
@@ -145,7 +161,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitRelCond(RelCondContext ctx) {
-		return visitChildren(ctx);
+		return visitChildren(ctx) + "ifeq ";
 	}
 	
 	@Override
