@@ -63,7 +63,18 @@ public class CompilerTest {
 				{"Number b=8/2*4!" +	"Out<<Number b>>!","16" + System.lineSeparator()},
 				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
 				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
-				
+				{"Number b = 3!"
+						+ "if<<b == 3>> "
+						+ "then: Out<<Number b>>!"
+						+ "fi!", "3" + System.lineSeparator()
+				},
+				{"Number b = 3!"
+						+ "Number a = 1!"
+						+ "if<<b == 2>>"
+						+ "then: Out<<Number b>>!"
+						+ "else: Out<<Number a>>!"
+						+ "fi!", "1" + System.lineSeparator()
+				}
 		};
 	}
 
