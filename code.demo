@@ -1,2 +1,9 @@
-Number b = 3!
-Out<<Number b>>!
+Number a = 1!
+
+#Funktion<<Number x>><<Number>>
+Out<<Number x>>!
+#!
+
+Funktion<<Number a>>!
+
+
