@@ -87,7 +87,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitDowhileclause(DowhileclauseContext ctx) {
-		return "lb" + labelCounter++ + "\n" + visit(ctx.docode) + visit(ctx.cond) + "lb" + labelCounter + "\n";
+		return "lb" + labelCounter + ":\n" + visit(ctx.docode) + visit(ctx.cond) + "lb" + labelCounter++ + "\n";
 		//label: docode
 		//W1
 		//W2

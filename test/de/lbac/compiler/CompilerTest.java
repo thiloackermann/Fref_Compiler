@@ -74,6 +74,13 @@ public class CompilerTest {
 						+ "then: Out<<Number b>>!"
 						+ "else: Out<<Number a>>!"
 						+ "fi!", "1" + System.lineSeparator()
+				},
+				{"Number a = 1!"
+						+ "do\n"
+						+ "Out<<Number a>>!\n"
+						+ "a = a + 1!\n"
+						+ "while<<a<4>>\n"
+						+ "od!\n", "1" + System.lineSeparator() + "2" + System.lineSeparator() + "3" + System.lineSeparator()
 				}
 		};
 	}
