@@ -9,17 +9,19 @@ import de.lbac.parser.frefParser.DeclarationContext;
 import de.lbac.parser.frefParser.DeclarationDefinitionContext;
 import de.lbac.parser.frefParser.DefinitionContext;
 import de.lbac.parser.frefParser.DowhileclauseContext;
+import de.lbac.parser.frefParser.EQCondContext;
 import de.lbac.parser.frefParser.EmptyContext;
 import de.lbac.parser.frefParser.ExpressionWithoutStatementContext;
 import de.lbac.parser.frefParser.FnctcallContext;
 import de.lbac.parser.frefParser.FnctnContext;
 import de.lbac.parser.frefParser.FuncCallContext;
 import de.lbac.parser.frefParser.FunctionParameterContext;
+import de.lbac.parser.frefParser.GTCondContext;
 import de.lbac.parser.frefParser.IfclauseContext;
 import de.lbac.parser.frefParser.IfelseclauseContext;
+import de.lbac.parser.frefParser.LTCondContext;
 import de.lbac.parser.frefParser.MultDivisionContext;
 import de.lbac.parser.frefParser.NumberContext;
-import de.lbac.parser.frefParser.RelCondContext;
 import de.lbac.parser.frefParser.StartContext;
 import de.lbac.parser.frefParser.SubtractionContext;
 import de.lbac.parser.frefParser.VariableContext;
@@ -90,7 +92,6 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		//W1
 		//W2
 		//IFEQ <label>
-		return visitChildren(ctx);
 	}
 	
 	@Override
@@ -130,14 +131,14 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitIfclause(IfclauseContext ctx) {
-		return visit(ctx.cond) + "lb" + labelCounter++ + "\ngoto lb" + labelCounter++ + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter +":\n";
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\ngoto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
 	}														//[code]
 															//goto Label2
 															//Label1: [code]
 															//Label2: ...	
 	@Override
 	public Object visitIfelseclause(IfelseclauseContext ctx) {
-		return visit(ctx.cond) + "lb" + labelCounter++ + "\n" + vist(ctx.elsecode) + "goto lb" + labelCounter++ + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter +":\n";
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\n" + visit(ctx.elsecode) + "goto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
 	}
 	
 	@Override
@@ -160,8 +161,18 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	}
 	
 	@Override
-	public Object visitRelCond(RelCondContext ctx) {
-		return visitChildren(ctx) + "ifeq ";
+	public Object visitEQCond(EQCondContext ctx) {
+		return visitChildren(ctx) + "isub\nifeq ";
+	}
+	
+	@Override
+	public Object visitGTCond(GTCondContext ctx) {
+		return visitChildren(ctx) + "isub\nifgt ";
+	}
+	
+	@Override
+	public Object visitLTCond(LTCondContext ctx) {
+		return visitChildren(ctx) + "isub\niflt ";
 	}
 	
 	@Override
