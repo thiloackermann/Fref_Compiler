@@ -32,7 +32,7 @@ import java.util.Map;
 public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	Map<String, Integer> variables = new HashMap<String, Integer>();   //Variablen Map
-	Map<String, String> functions = new HashMap<String, String>();   //Funktionsmap
+	Map<String, HashMap<String, Integer>> functions = new HashMap<String, HashMap<String, Integer>>();   //Funktionsmap
 	int labelCounter;
 	
 	public MyVisitor(){
@@ -79,6 +79,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitDefinition(DefinitionContext ctx) {
+		
 		if(variables.get(ctx.name.getText()) != null)
 			return visitChildren(ctx) + "istore " + variables.get(ctx.name.getText()) + "\n";
 		return null;
@@ -106,12 +107,42 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		return visitChildren(ctx) + "invokestatic " + "Fref" + "." + ctx.functionname.getText() + "(I)V\n";
+		String callType;
+		if (ctx.functionname.getText().equals("Out")){
+			callType = "invokestatic";
+		} else {
+			callType = "invokevirtual";
+		}
+		return visitChildren(ctx) + callType + " Fref" + "." + ctx.functionname.getText() + "(I)V\n";
 	}
 	
 	@Override
 	public Object visitFnctn(FnctnContext ctx) {
-		return visitChildren(ctx);
+		String ret = ".method public " + ctx.functionname + "(";
+		if(!ctx.fp.isEmpty()){
+			ret += "I";
+		}
+		ret += ")";
+		if (ctx.ret.getText().equals("String")){
+			ret += "Ljava/lang/String\n";
+		} else if (ctx.ret.getText().equals("Number")){
+			ret += "I\n";
+		} else {
+			ret += "V\n";
+		}
+		ret += "\n" +
+				"	.limit stack 20\n" +
+				"	.limit locals 20\n";
+		visitCode(ctx.funcode);
+		if (ctx.ret.getText().equals("String")){
+			//ret += STRING RETURN;
+			ret += "return\n";
+		} else if (ctx.ret.getText().equals("Number")){
+			ret += "ireturn\n";
+		} else {
+			ret += "return\n";
+		}
+		return ret;
 	}
 	
 	@Override

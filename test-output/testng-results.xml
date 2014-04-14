@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="11" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1251" started-at="2014-04-14T10:27:57Z" finished-at="2014-04-14T10:27:58Z">
+  <suite name="Default suite" duration-ms="1150" started-at="2014-04-14T11:29:43Z" finished-at="2014-04-14T11:29:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1251" started-at="2014-04-14T10:27:57Z" finished-at="2014-04-14T10:27:58Z">
+    <test name="Default test" duration-ms="1150" started-at="2014-04-14T11:29:43Z" finished-at="2014-04-14T11:29:44Z">
       <class name="de.lbac.compiler.CompilerTest">
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="5" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="6" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="234" started-at="2014-04-14T12:27:57Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="233" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -28,15 +28,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="85" started-at="2014-04-14T12:27:57Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="90" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -53,15 +53,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="87" started-at="2014-04-14T12:27:57Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="93" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -78,15 +78,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:57Z" finished-at="2014-04-14T12:27:57Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="101" started-at="2014-04-14T12:27:57Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="80" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -103,15 +103,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="3" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="106" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="84" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -128,15 +128,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="105" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="81" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:43Z">
           <params>
             <param index="0">
               <value>
@@ -153,15 +149,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="3" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="111" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T13:29:43Z" finished-at="2014-04-14T13:29:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="87" started-at="2014-04-14T13:29:43Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:44Z">
           <params>
             <param index="0">
               <value>
@@ -178,15 +178,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="82" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="78" started-at="2014-04-14T13:29:44Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:44Z">
           <params>
             <param index="0">
               <value>
@@ -203,15 +203,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="101" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="89" started-at="2014-04-14T13:29:44Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:44Z">
           <params>
             <param index="0">
               <value>
@@ -228,11 +224,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="87" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="85" started-at="2014-04-14T13:29:44Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:44Z">
           <params>
             <param index="0">
               <value>
@@ -249,19 +253,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="3" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="5" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->
-        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createTempDir -->
-        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="89" started-at="2014-04-14T12:27:58Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="runningCode_outputExpectedText" duration-ms="88" started-at="2014-04-14T13:29:44Z" data-provider="provide_code_expectedText" finished-at="2014-04-14T13:29:44Z">
           <params>
             <param index="0">
               <value>
@@ -285,7 +285,7 @@ od!
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runningCode_outputExpectedText -->
-        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T12:27:58Z" finished-at="2014-04-14T12:27:58Z">
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@308d4560]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-04-14T13:29:44Z" finished-at="2014-04-14T13:29:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteTempDir -->

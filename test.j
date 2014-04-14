@@ -16,10 +16,13 @@
 	.limit stack 100
 	.limit locals 100
 
-ldc 3
+ldc 1
 istore 0
-iload 0
+istore 1
+iload 1
 invokestatic Fref.Out(I)V
+iload 0
+invokevirtual Fref.Funktion(I)V
 	return
 
 .end method

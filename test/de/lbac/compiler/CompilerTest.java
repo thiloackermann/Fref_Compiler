@@ -82,6 +82,7 @@ public class CompilerTest {
 						+ "while<<a<4>>\n"
 						+ "od!\n", "1" + System.lineSeparator() + "2" + System.lineSeparator() + "3" + System.lineSeparator()
 				}
+				
 		};
 	}
 
