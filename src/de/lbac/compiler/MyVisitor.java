@@ -136,7 +136,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		visitCode(ctx.funcode);
 		if (ctx.ret.getText().equals("String")){
 			//ret += STRING RETURN;
-			ret += "return\n";
+			ret += "areturn\n";
 		} else if (ctx.ret.getText().equals("Number")){
 			ret += "ireturn\n";
 		} else {
