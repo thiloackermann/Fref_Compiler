@@ -41,10 +41,10 @@ public class Main {
 		return ".class public Fref\n" + 
 				".super java/lang/Object\n" + 
 				"\n" + 
-				".method public static Out(I)V\n" +
+				".method public static out(I)V\n" +
 				"\n" +
-				"	.limit stack 20\n" +
-				"	.limit locals 20\n" +
+				"	.limit stack 2\n" +
+				"	.limit locals 2\n" +
 				"	iload 0\n" +
 				"	getstatic java/lang/System/out Ljava/io/PrintStream;\n" +
 				"	swap\n" +
@@ -52,14 +52,14 @@ public class Main {
 				"	return\n" + 
 				"\n" +
 				".end method\n" +
-				".method public static main([Ljava/lang/String;)V\n" + 
-				"	.limit stack 100\n" + 
-				"	.limit locals 100\n" + 
-				"\n" +
-				code + 
-				"	return\n" + 
-				"\n" +
-				".end method\n" 
+				//".method public static main([Ljava/lang/String;)V\n" + 
+				//"	.limit stack 100\n" + 
+				//"	.limit locals 100\n" + 
+				//"\n" +
+				code //+ 
+				//"	return\n" + 
+				//"\n" +
+				//".end method\n" 
 				;
 	}
 

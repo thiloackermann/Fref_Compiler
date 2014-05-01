@@ -5,7 +5,7 @@
     <classes>
       <class name="de.lbac.compiler.CompilerTest">
         <methods>
-          <include name="runningCode_outputExpectedText" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10"/>
+          <include name="runningCode_outputExpectedText" invocation-numbers="11"/>
           <include name="deleteTempDir"/>
           <include name="createTempDir"/>
         </methods>

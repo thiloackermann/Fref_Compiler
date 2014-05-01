@@ -1,9 +1,12 @@
-Number a = 1!
-
-#Funktion<<Number x>><<Number>>
-Out<<Number x>>!
+#Inc<<Number x>><<Number>>
+x = x+1!
+return x!
 #!
-
-Funktion<<Number a>>!
-
-
+#Main<<Number x>><<Void>>
+Number a = 1!
+do
+Out<<Number a>>!
+a = Inc<<Number a>>!
+while<<a<4>>
+od!
+#!

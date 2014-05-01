@@ -55,32 +55,77 @@ public class CompilerTest {
 	@DataProvider
 	private Object[][] provide_code_expectedText(){
 		return new Object[][]{
-				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
-				{"Number b=1+2*3!" + "Out<<Number b>>!","7" + System.lineSeparator()},
-				{"Number b=(1+2)*3!" +	"Out<<Number b>>!","9" + System.lineSeparator()},
-				{"Number b!" + "b = 42!" +	"Out<<Number b>>!","42" + System.lineSeparator()},
-				{"Number b=1*2/4+1!" +	"Out<<Number b>>!","1" + System.lineSeparator()},
-				{"Number b=8/2*4!" +	"Out<<Number b>>!","16" + System.lineSeparator()},
-				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
-				{"Number b=1+2!" +	"Out<<Number b>>!","3" + System.lineSeparator()},
-				{"Number b = 3!"
-						+ "if<<b == 3>> "
-						+ "then: Out<<Number b>>!"
-						+ "fi!", "3" + System.lineSeparator()
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=1+2!\n" 
+						+ "Out<<Number b>>!\n"
+						+ "#!","3" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=1+2*3!\n" 
+						+ "Out<<Number b>>!\n"
+						+ "#!","7" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=(1+2)*3!\n" 
+						+ "Out<<Number b>>!\n"
+						+ "#!","9" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b!\n" 
+						+ "b = 42!\n" 
+						+ "Out<<Number b>>!\n"
+						+ "#!","42" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=1*2/4+1!\n"
+						+ "Out<<Number b>>!\n"
+						+ "#!","1" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=8/2*4!\n" 
+						+ "Out<<Number b>>!\n"
+						+ "#!","16" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=1+2!\n" 
+						+ "Out<<Number b>>!"
+						+ "#!","3" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b=1+2!\n"
+						+ "Out<<Number b>>!\n"
+						+ "#!","3" + System.lineSeparator()},
+				{"#Main<<Number x>><<Void>>\n"
+						+ "Number b = 3!\n"
+						+ "if<<b == 3>> \n"
+						+ "then: Out<<Number b>>!\n"
+						+ "fi!\n"
+						+ "#!", "3" + System.lineSeparator()
 				},
-				{"Number b = 3!"
+				{"#Main<<Number x>><<Void>>"
+						+ "Number b = 3!\n"
+						+ "Number a = 1!\n"
+						+ "if<<b == 2>>\n"
+						+ "then: Out<<Number b>>!\n"
+						+ "else: Out<<Number a>>!\n"
+						+ "fi!\n"
+						+ "#!", "1" + System.lineSeparator()
+				},
+				{"#Main<<Number x>><<Void>>\n"
 						+ "Number a = 1!"
-						+ "if<<b == 2>>"
-						+ "then: Out<<Number b>>!"
-						+ "else: Out<<Number a>>!"
-						+ "fi!", "1" + System.lineSeparator()
-				},
-				{"Number a = 1!"
 						+ "do\n"
 						+ "Out<<Number a>>!\n"
 						+ "a = a + 1!\n"
 						+ "while<<a<4>>\n"
-						+ "od!\n", "1" + System.lineSeparator() + "2" + System.lineSeparator() + "3" + System.lineSeparator()
+						+ "od!\n"
+						+ "#!", "1" + System.lineSeparator() + "2" + System.lineSeparator() + "3" + System.lineSeparator()
+				},
+				
+				{"#Inc<<Number x>><<Number>>\n"
+						+ "Number y = x+1!\n"
+						+ "return y!\n"
+						+ "#!"
+						+ "#Main<<Number x>><<Void>>\n"
+						+ "Number a = 1!\n"
+						+ "do\n"
+						+ "Out<<Number a>>!\n"
+						+ "a = Inc<<Number a>>!\n"
+						+ "while<<a<4>>\n"
+						+ "od!\n"
+						+ "#!\n", "1" + System.lineSeparator() + "2" + System.lineSeparator() + "3" + System.lineSeparator()
 				}
 				
 		};

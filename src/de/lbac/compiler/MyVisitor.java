@@ -22,6 +22,7 @@ import de.lbac.parser.frefParser.IfelseclauseContext;
 import de.lbac.parser.frefParser.LTCondContext;
 import de.lbac.parser.frefParser.MultDivisionContext;
 import de.lbac.parser.frefParser.NumberContext;
+import de.lbac.parser.frefParser.RetValueContext;
 import de.lbac.parser.frefParser.StartContext;
 import de.lbac.parser.frefParser.SubtractionContext;
 import de.lbac.parser.frefParser.VariableContext;
@@ -31,8 +32,9 @@ import java.util.Map;
  
 public class MyVisitor extends frefBaseVisitor<Object> {
 	
+	String currentFunction = "";
 	Map<String, Integer> variables = new HashMap<String, Integer>();   //Variablen Map
-	Map<String, HashMap<String, Integer>> functions = new HashMap<String, HashMap<String, Integer>>();   //Funktionsmap
+	Map<String, Map<String, Integer>> functions = new HashMap<String, Map<String, Integer>>();   //Funktionsmap
 	int labelCounter;
 	
 	public MyVisitor(){
@@ -107,25 +109,40 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		String callType;
-		if (ctx.functionname.getText().equals("Out")){
-			callType = "invokestatic";
+		String ret = visitChildren(ctx) + "invokestatic" + " Fref" + "." + ctx.functionname.getText().toLowerCase() + "(";
+		if(ctx.fp.getText().equals("Void")){
+			ret += "V)";
 		} else {
-			callType = "invokevirtual";
+			ret += "I)";
 		}
-		return visitChildren(ctx) + callType + " Fref" + "." + ctx.functionname.getText() + "(I)V\n";
+		if(ctx.getParent().getParent().getClass().equals(DefinitionContext.class)||ctx.getParent().getParent().getClass().equals(DeclarationDefinitionContext.class)){
+			ret += "I\n";
+		} else {
+			ret += "V\n";
+		}
+		return ret;
 	}
 	
 	@Override
 	public Object visitFnctn(FnctnContext ctx) {
-		String ret = ".method public " + ctx.functionname + "(";
-		if(!ctx.fp.isEmpty()){
+		if (!currentFunction.equals(""))
+			functions.put(currentFunction, variables);
+		currentFunction = ctx.functionname.getText().toLowerCase();
+		if (functions.get(currentFunction) != null){
+			variables = functions.get(currentFunction);
+		} else {
+			variables = new HashMap<String, Integer>();
+		}
+		
+		String ret = ".method public static ";
+		ret += currentFunction + "(";
+		if(currentFunction.equals("main")){
+			ret += "[Ljava/lang/String;";
+		} else if (!ctx.fp.isEmpty()){
 			ret += "I";
 		}
 		ret += ")";
-		if (ctx.ret.getText().equals("String")){
-			ret += "Ljava/lang/String\n";
-		} else if (ctx.ret.getText().equals("Number")){
+		if (ctx.ret.getText().equals("Number")){
 			ret += "I\n";
 		} else {
 			ret += "V\n";
@@ -133,15 +150,14 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		ret += "\n" +
 				"	.limit stack 20\n" +
 				"	.limit locals 20\n";
-		visitCode(ctx.funcode);
-		if (ctx.ret.getText().equals("String")){
-			//ret += STRING RETURN;
-			ret += "areturn\n";
-		} else if (ctx.ret.getText().equals("Number")){
-			ret += "ireturn\n";
+		ret += visitFunctionParameter((FunctionParameterContext) ctx.fp);
+		ret += visitCode(ctx.funcode);
+		if (ctx.ret.getText().equals("Number")){
+			ret += visitRetValue(ctx.retValue());
 		} else {
 			ret += "return\n";
 		}
+		ret += ".end method\n";
 		return ret;
 	}
 	
@@ -156,7 +172,7 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 			return "iload " + variables.get(ctx.name.getText()) + "\n";
 		else{
 			variables.put(ctx.name.getText(), variables.size());
-			return "istore " + variables.get(ctx.name.getText()) + "\n";
+			return "";
 		}
 	}
 	
@@ -215,7 +231,12 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	public Object visitSubtraction(SubtractionContext ctx) {
 		return visitChildren(ctx) + "isub\n";
 	}
-
+	
+	@Override
+	public Object visitRetValue(RetValueContext ctx) {
+		return "iload " + variables.get(ctx.name.getText()) + "\nireturn\n";
+	}
+	
 	@Override
 	public Object visitVariable(VariableContext ctx) {
 		return "iload " + variables.get(ctx.getText()) + "\n";
