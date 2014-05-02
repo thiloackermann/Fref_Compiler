@@ -36,15 +36,19 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	Map<String, Integer> variables = new HashMap<String, Integer>();   //Variablen Map
 	Map<String, Map<String, Integer>> functions = new HashMap<String, Map<String, Integer>>();   //Funktionsmap
 	int labelCounter;
+	int maxStack;
+	int stackSize;
 	
 	public MyVisitor(){
 		labelCounter = 0;
+		stackSize = 0;
+		maxStack = 0;
 	}
 	
 	
 	@Override
 	public Object visitAddition(AdditionContext ctx) {
-		return visitChildren(ctx) + "iadd\n";
+		return visitChildren(ctx) + "        #?#iadd\n";
 	}
 	
 	@Override
@@ -59,10 +63,6 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitCompareKeyword(CompareKeywordContext ctx) {
-		if(ctx.getText().equals("==")){
-			return "ifeq ";
-		}
-		
 		return visitChildren(ctx);
 	}
 	
@@ -76,14 +76,13 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	public Object visitDeclarationDefinition(DeclarationDefinitionContext ctx) {
 		if(!variables.containsKey(ctx.name.getText()))
 				variables.put(ctx.name.getText(), variables.size());
-		return visitChildren(ctx) + "istore " + variables.get(ctx.name.getText()) + "\n";
+		return visitChildren(ctx) + "        #?#istore " + variables.get(ctx.name.getText()) + "\n";
 	}
 	
 	@Override
 	public Object visitDefinition(DefinitionContext ctx) {
-		
 		if(variables.get(ctx.name.getText()) != null)
-			return visitChildren(ctx) + "istore " + variables.get(ctx.name.getText()) + "\n";
+			return visitChildren(ctx) + "        #?#istore " + variables.get(ctx.name.getText()) + "\n";
 		return null;
 		
 	}
@@ -109,14 +108,16 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
-		String ret = visitChildren(ctx) + "invokestatic" + " Fref" + "." + ctx.functionname.getText().toLowerCase() + "(";
+		String ret = visitChildren(ctx) + "        invokestatic" + " Fref" + "." + ctx.functionname.getText().toLowerCase() + "(";
 		if(ctx.fp.getText().equals("Void")){
 			ret += "V)";
 		} else {
-			ret += "I)";
+			ret += "I)#?#";
 		}
 		if(ctx.getParent().getParent().getClass().equals(DefinitionContext.class)||ctx.getParent().getParent().getClass().equals(DeclarationDefinitionContext.class)){
-			ret += "I\n";
+			if (stackSize>maxStack)
+				maxStack = stackSize;
+			ret += "I#!#\n";
 		} else {
 			ret += "V\n";
 		}
@@ -125,16 +126,16 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitFnctn(FnctnContext ctx) {
+		stackSize = 0;
+		maxStack = 0;
 		if (!currentFunction.equals(""))
 			functions.put(currentFunction, variables);
 		currentFunction = ctx.functionname.getText().toLowerCase();
-		if (functions.get(currentFunction) != null){
-			variables = functions.get(currentFunction);
-		} else {
-			variables = new HashMap<String, Integer>();
-		}
+		variables = new HashMap<String, Integer>();
+		
 		
 		String ret = ".method public static ";
+		String code = "";
 		ret += currentFunction + "(";
 		if(currentFunction.equals("main")){
 			ret += "[Ljava/lang/String;";
@@ -147,20 +148,42 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		} else {
 			ret += "V\n";
 		}
-		ret += "\n" +
-				"	.limit stack 20\n" +
-				"	.limit locals 20\n";
-		ret += visitFunctionParameter((FunctionParameterContext) ctx.fp);
-		ret += visitCode(ctx.funcode);
+		code += visitFunctionParameter((FunctionParameterContext) ctx.fp);
+		code += visitCode(ctx.funcode);
+		
 		if (ctx.ret.getText().equals("Number")){
-			ret += visitRetValue(ctx.retValue());
+			code += visitRetValue(ctx.retValue());
 		} else {
-			ret += "return\n";
+			code += "        return\n";
 		}
-		ret += ".end method\n";
+		code = calcStack(code);
+		ret += "\n" +
+				"	.limit stack " + maxStack + "\n" +
+				"	.limit locals " + variables.size() + "\n";
+		ret += code + ".end method\n";
 		return ret;
 	}
 	
+	private String calcStack(String code) {
+		String[] parts = code.split("#");
+		String c = "";
+		int i =0;
+		while (i<parts.length){
+			if (parts[i].equals("!")){
+				stackSize++;
+				if (stackSize>maxStack)
+					maxStack = stackSize;
+			} else if (parts[i].equals("?")){
+				stackSize--;
+			} else {
+				c += parts[i];
+			}
+			i++;
+		}
+		return c;
+	}
+
+
 	@Override
 	public Object visitFuncCall(FuncCallContext ctx) {
 		return visitChildren(ctx);
@@ -168,9 +191,11 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 
 	@Override
 	public Object visitFunctionParameter(FunctionParameterContext ctx) {
-		if(ctx.parent.getText().charAt(0) != ('#'))
-			return "iload " + variables.get(ctx.name.getText()) + "\n";
-		else{
+		if(ctx.parent.getText().charAt(0) != ('#')){
+			if (stackSize>maxStack)
+				maxStack = stackSize;
+			return "        #!#iload " + variables.get(ctx.name.getText()) + "\n";
+		}else{
 			variables.put(ctx.name.getText(), variables.size());
 			return "";
 		}
@@ -178,14 +203,14 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitIfclause(IfclauseContext ctx) {
-		return visit(ctx.cond) + "lb" + labelCounter++ + "\ngoto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\n        goto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
 	}														//[code]
 															//goto Label2
 															//Label1: [code]
 															//Label2: ...	
 	@Override
 	public Object visitIfelseclause(IfelseclauseContext ctx) {
-		return visit(ctx.cond) + "lb" + labelCounter++ + "\n" + visit(ctx.elsecode) + "goto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
+		return visit(ctx.cond) + "lb" + labelCounter++ + "\n" + visit(ctx.elsecode) + "        goto lb" + labelCounter + "\nlb" + (labelCounter-1) + ":\n" + visit(ctx.ifcode) + "lb" + labelCounter++ +":\n";
 	}
 	
 	@Override
@@ -193,33 +218,33 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		
 		if (ctx.operator.getText().equals("*"))
 		{
-			return visitChildren(ctx) + "imul\n";
+			return visitChildren(ctx) + "        #?#imul\n";
 		}
 		else
 		{
-			return visitChildren(ctx) + "idiv\n";
+			return visitChildren(ctx) + "        #?#idiv\n";
 		}
 			
 	}
 	
 	@Override
 	public Object visitNumber(NumberContext ctx) {
-		return "ldc " + ctx.getText() + "\n";
+		return "        #!#ldc " + ctx.getText() + "\n";
 	}
 	
 	@Override
 	public Object visitEQCond(EQCondContext ctx) {
-		return visitChildren(ctx) + "isub\nifeq ";
+		return visitChildren(ctx) + "        #?#isub\n        ifeq ";
 	}
 	
 	@Override
 	public Object visitGTCond(GTCondContext ctx) {
-		return visitChildren(ctx) + "isub\nifgt ";
+		return visitChildren(ctx) + "        #?#isub\n        ifgt ";
 	}
 	
 	@Override
 	public Object visitLTCond(LTCondContext ctx) {
-		return visitChildren(ctx) + "isub\niflt ";
+		return visitChildren(ctx) + "        #?#isub\n        iflt ";
 	}
 	
 	@Override
@@ -229,17 +254,17 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	
 	@Override
 	public Object visitSubtraction(SubtractionContext ctx) {
-		return visitChildren(ctx) + "isub\n";
+		return visitChildren(ctx) + "        #?#isub\n";
 	}
 	
 	@Override
 	public Object visitRetValue(RetValueContext ctx) {
-		return "iload " + variables.get(ctx.name.getText()) + "\nireturn\n";
+		return "        #!#iload " + variables.get(ctx.name.getText()) + "\n        ireturn\n";
 	}
 	
 	@Override
 	public Object visitVariable(VariableContext ctx) {
-		return "iload " + variables.get(ctx.getText()) + "\n";
+		return "        #!#iload " + variables.get(ctx.getText()) + "\n";
 	}
 	
 	@Override
