@@ -11,6 +11,7 @@ import de.lbac.parser.frefParser.DefinitionContext;
 import de.lbac.parser.frefParser.DowhileclauseContext;
 import de.lbac.parser.frefParser.EQCondContext;
 import de.lbac.parser.frefParser.EmptyContext;
+import de.lbac.parser.frefParser.ExpressionListContext;
 import de.lbac.parser.frefParser.ExpressionWithoutStatementContext;
 import de.lbac.parser.frefParser.FnctcallContext;
 import de.lbac.parser.frefParser.FnctnContext;
@@ -109,10 +110,11 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 	@Override
 	public Object visitFnctcall(FnctcallContext ctx) {
 		String ret = visitChildren(ctx) + "        invokestatic" + " Fref" + "." + ctx.functionname.getText().toLowerCase() + "(";
-		if(ctx.fp.getText().equals("Void")){
+		if(ctx.el.getChildCount()==0){
 			ret += "V)";
 		} else {
-			ret += "I)#?#";
+			ret += stringRepeat("I#?#", (ctx.el.getChildCount()+1)/2);
+			ret += ")";
 		}
 		if(ctx.getParent().getParent().getClass().equals(DefinitionContext.class)||ctx.getParent().getParent().getClass().equals(DeclarationDefinitionContext.class)){
 			if (stackSize>maxStack)
@@ -140,7 +142,9 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		if(currentFunction.equals("main")){
 			ret += "[Ljava/lang/String;";
 		} else if (!ctx.fp.isEmpty()){
-			ret += "I";
+			ret += stringRepeat("I", (ctx.fp.getChildCount()+1)/2);
+		} else {
+			ret += "V";
 		}
 		ret += ")";
 		if (ctx.ret.getText().equals("Number")){
@@ -164,6 +168,15 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 		return ret;
 	}
 	
+	private String stringRepeat(String string, int count) {
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i<count; i++){
+			builder.append(string);
+		}
+		return builder.toString();
+	}
+
+
 	private String calcStack(String code) {
 		String[] parts = code.split("#");
 		String c = "";
@@ -191,14 +204,16 @@ public class MyVisitor extends frefBaseVisitor<Object> {
 
 	@Override
 	public Object visitFunctionParameter(FunctionParameterContext ctx) {
-		if(ctx.parent.getText().charAt(0) != ('#')){
-			if (stackSize>maxStack)
-				maxStack = stackSize;
-			return "        #!#iload " + variables.get(ctx.name.getText()) + "\n";
-		}else{
-			variables.put(ctx.name.getText(), variables.size());
-			return "";
-		}
+		for(int i = 0; i<ctx.declarations.size();i++)
+			variables.put(ctx.declarations.get(i).getChild(1).toString(), variables.size());
+		return "";
+	}
+	
+	@Override
+	public Object visitExpressionList(ExpressionListContext ctx) {
+		if (stackSize>maxStack)
+			maxStack = stackSize;
+		return visitChildren(ctx);
 	}
 	
 	@Override

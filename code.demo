@@ -1,12 +1,13 @@
-#Inc<<Number x>><<Number>>
-x = x+1!
+#Inc<<Number x, Number y>><<Number>>
+x = x+y!
 return x!
 #!
 #Main<<Number x>><<Void>>
 Number a = 1!
+Number b = 1!
 do
-Out<<Number a>>!
-a = Inc<<Number a>>!
+Out<<a>>!
+a = Inc<<a,b>>!
 while<<a<4>>
 od!
 #!

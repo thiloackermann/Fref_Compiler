@@ -52,14 +52,7 @@ public class Main {
 				"	return\n" + 
 				"\n" +
 				".end method\n" +
-				//".method public static main([Ljava/lang/String;)V\n" + 
-				//"	.limit stack 100\n" + 
-				//"	.limit locals 100\n" + 
-				//"\n" +
-				code //+ 
-				//"	return\n" + 
-				//"\n" +
-				//".end method\n" 
+				code 
 				;
 	}
 

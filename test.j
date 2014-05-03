@@ -12,12 +12,12 @@
 	return
 
 .end method
-.method public static inc(I)I
+.method public static inc(II)I
 
 	.limit stack 2
-	.limit locals 1
+	.limit locals 2
         iload 0
-        ldc 1
+        iload 1
         iadd
         istore 0
         iload 0
@@ -26,14 +26,17 @@
 .method public static main([Ljava/lang/String;)V
 
 	.limit stack 2
-	.limit locals 2
+	.limit locals 3
         ldc 1
         istore 1
+        ldc 1
+        istore 2
 lb0:
         iload 1
         invokestatic Fref.out(I)V
         iload 1
-        invokestatic Fref.inc(I)I
+        iload 2
+        invokestatic Fref.inc(II)I
         istore 1
         iload 1
         ldc 4
