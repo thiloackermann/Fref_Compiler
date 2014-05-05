@@ -1,22 +1,13 @@
-Number a!
-Number b = 2!
-a = b - 1!
-
-if<<a==1>>
-then: a=2!
-else: a=3!
-fi!
-
-if<<a>2>>
-then: a=0!
-fi!
-
+#Inc<<Number x, Number y>><<Number>>
+x = x+y!
+return x!
+#!
+#Main<<Number x>><<Void>>
+Number a = 1!
+Number b = 1!
 do
-a = a * 2!
-y = Funktion<<Number a>>!
-while<<a<10>>
+Out<<a>>!
+a = Inc<<a,b>>!
+while<<a<4>>
 od!
-
-#Funktion<<Number x>><<Number>>
-Out<<Number x>>!
 #!

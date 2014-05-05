@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="13" passed="13">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1387" started-at="2014-05-03T21:54:08Z" finished-at="2014-05-03T21:54:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1387" started-at="2014-05-03T21:54:08Z" finished-at="2014-05-03T21:54:09Z">
+      <class name="de.lbac.compiler.CompilerTest">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="9" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="253" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="92" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=1+2*3!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[7
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="88" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=(1+2)*3!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[9
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="84" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b!
+b = 42!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[42
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="3" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="86" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=1*2/4+1!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="87" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=8/2*4!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[16
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="86" started-at="2014-05-03T23:54:08Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:08Z" finished-at="2014-05-03T23:54:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="84" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="99" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number b = 3!
+if<<b == 3>> 
+then: Out<<b>>!
+fi!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="91" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>Number b = 3!
+Number a = 1!
+if<<b == 2>>
+then: Out<<b>>!
+else: Out<<a>>!
+fi!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="88" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Main<<Number x>><<Void>>
+Number a = 1!do
+Out<<a>>!
+a = a + 1!
+while<<a<4>>
+od!
+#!]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1
+2
+3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="1" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="87" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Inc<<Number x>><<Number>>
+Number y = x+1!
+return y!
+#!
+#Main<<Number x>><<Void>>
+Number a = 1!
+do
+Out<<a>>!
+a = Inc<<a>>!
+while<<a<4>>
+od!
+#!
+]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1
+2
+3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="createTempDir" is-config="true" duration-ms="0" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCode_outputExpectedText(java.lang.String, java.lang.String)[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="runningCode_outputExpectedText" duration-ms="88" started-at="2014-05-03T23:54:09Z" data-provider="provide_code_expectedText" finished-at="2014-05-03T23:54:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[#Inc<<Number x, Number y>><<Number>>
+x = x+y!
+return x!
+#!
+#Main<<Number x>><<Void>>
+Number a = 1!
+Number b = 1!
+do
+Out<<a>>!
+a = Inc<<a,b>>!
+while<<a<4>>
+od!
+#!
+]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1
+2
+3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCode_outputExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:de.lbac.compiler.CompilerTest@79929190]" name="deleteTempDir" is-config="true" duration-ms="2" started-at="2014-05-03T23:54:09Z" finished-at="2014-05-03T23:54:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+      </class> <!-- de.lbac.compiler.CompilerTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

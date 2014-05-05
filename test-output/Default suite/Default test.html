@@ -1,0 +1,229 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat May 03 23:54:08 CEST 2014</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1387 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!
+#!, 3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=1+2*3!
+Out<<b>>!
+#!, 7
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=(1+2)*3!
+Out<<b>>!
+#!, 9
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b!
+b = 42!
+Out<<b>>!
+#!, 42
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=1*2/4+1!
+Out<<b>>!
+#!, 1
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=8/2*4!
+Out<<b>>!
+#!, 16
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!#!, 3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b=1+2!
+Out<<b>>!
+#!, 3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number b = 3!
+if<<b == 3>> 
+then: Out<<b>>!
+fi!
+#!, 3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>Number b = 3!
+Number a = 1!
+if<<b == 2>>
+then: Out<<b>>!
+else: Out<<a>>!
+fi!
+#!, 1
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Main<<Number x>><<Void>>
+Number a = 1!do
+Out<<a>>!
+a = a + 1!
+while<<a<4>>
+od!
+#!, 1
+2
+3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Inc<<Number x>><<Number>>
+Number y = x+1!
+return y!
+#!
+#Main<<Number x>><<Void>>
+Number a = 1!
+do
+Out<<a>>!
+a = Inc<<a>>!
+while<<a<4>>
+od!
+#!
+, 1
+2
+3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+<tr>
+<td title='de.lbac.compiler.CompilerTest.runningCode_outputExpectedText()'><b>runningCode_outputExpectedText</b><br>Test class: de.lbac.compiler.CompilerTest<br>Parameters: #Inc<<Number x, Number y>><<Number>>
+x = x+y!
+return x!
+#!
+#Main<<Number x>><<Void>>
+Number a = 1!
+Number b = 1!
+do
+Out<<a>>!
+a = Inc<<a,b>>!
+while<<a<4>>
+od!
+#!
+, 1
+2
+3
+</td>
+<td></td>
+<td>0</td>
+<td>de.lbac.compiler.CompilerTest@79929190</td></tr>
+</table><p>
+</body>
+</html>
